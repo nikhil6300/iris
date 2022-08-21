@@ -42,6 +42,12 @@ def predict():
     return jsonify(pred)
 
 
+@app.route('/login')
+def login():
+    """ Login """
+    return render_template('login.html')
+
+
 
 
 
