@@ -1,7 +1,6 @@
 from flask import Flask,render_template,request,jsonify
 import pickle
 import numpy as np
-import db
 
 with open('model.pkl','rb') as f:
 
@@ -39,13 +38,10 @@ def predict():
         pred='Iris-versicolour'
         print('Iris-versicolour')
     
-    return jsonify(pred)
+    return render_template('iris_data.html',prediction=pred)
 
 
-@app.route('/login')
-def login():
-    """ Login """
-    return render_template('login.html')
+
 
 
 
@@ -58,4 +54,5 @@ def login():
 
 if __name__=="__main__":
 
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=8080)
+    
